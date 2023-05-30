@@ -1,0 +1,20 @@
+ APLICAÇÃO SINCRONA
+
+A programação sincrona eo metodo classico de desenvolvimento onde existe uma ordem de execução de processos,
+funções, a logica de programção basica ensina esse metodo de desenvolvimento, com ordem especifica para a execução 
+as linguagens classicas como php , java,c# usam o padrão sincrono de execução.
+
+PROCESSO BLOQUEANTE 
+
+Uma ação bloqueante e aquela que para toda a aplicação e seus processos enquanto é executada, um exemplo
+eo envio dos dados de um formulario a base de dados enquanto ele não salva os dados a tela fica branca 
+esperando o processo terminar e enquanto o porcesso não termina a aplicação não pode fazer mais nada durante
+esse tempo, em pequena escala em um servidor local o porcesso pode demorar menos de um segundo, mas em larga
+escala isso pode levar ao travamento da aplicação por timeout dependendo do quão robusto eo servidor.
+
+
+
+
+
+
+

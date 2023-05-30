@@ -1,0 +1,8 @@
+ASSINCRONIA 
+
+ Diferente de um porcesso sincrono que espera um porcesso terminar pra iniciar outro, isso faz com que o usurio espere menos
+ para que sua solicitação seja atendida por exemplo a sequencia de execução não segue uma ordem, mas isso tambem pode gerar 
+ problemas, por exemplo no cadastro de um usurio eu tenho que validar as informações antes de salvar na base de dados, se a função salvar 
+ for executada antes de validar eu vou ter um problema.
+
+
