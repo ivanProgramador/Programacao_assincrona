@@ -1,0 +1,9 @@
+Promisses 
+
+Em js pormisses são agendamentos de processos, como um promessa da vida real, não existem
+garantias de quando uma promessa vai ser cumprida então ela pode falhar, por exemplo o processo 
+que eu estou fazendo e pra enviar um e-mail, mas podem aconetcer varias coisas que impeçam que 
+o e-mail seja enviado nisso as promisses tratam os erros 
+
+resolve -> o email foi enviado 
+reject  -> não foi enviado 

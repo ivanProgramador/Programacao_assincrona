@@ -1,0 +1,79 @@
+// Processos assincronos no codigo abaixo eu vou simulkar um sistema de envio de e-mail,
+//a afunção abaixo recebe 2 parametros o destianatario do email eo corpo do e-mail dentro dela
+// estou usando O setTimeout para defginir que ela vai ser executada em 3 segundos so que junto com essa 
+//funcção eu vou colocar mais 3 processos que vão ser executados de forma assincrona o console vai mostrar claramente 
+// que o node executa as funções mais rapidas en quanto a função de enviar email espera os 3 segundos 
+//emabora exsita uma sequecia de execução ela é ignorada pelo porcessamento assincrono 
+/*
+console.log('enviando e-mail')
+
+function enviarEmail(corpo,para){
+
+     setTimeout(()=>{
+        console.log(
+            `Para: ${para}
+             --------------------------------
+             ${corpo}
+             --------------------------------------
+             De> Victor Lima
+            `
+        );
+     },3000)
+}
+
+enviarEmail('seja bem vindo ','Pedro')
+
+console.log('e-mail enviado');
+console.log('seu e-mail chegou');
+
+*/
+
+
+//FUNÇÕES DE CALL BACK 
+//As funções de call back  podem ser usadas para controlar as ordem das funções que vão ser executadas 
+// no primeiro exemplo as mensagem de chagad de email estavam sendo mostradas ao cliente antes do emial de fato ser enviado 
+// para evitar que cliente receba um informação errada as funções de call back podem ser usadas pra avisar ao cliente 
+//que o e-mal foi enviado somente quando isso realmente acontecer  
+//e adicionai um terceiro parametro na minha função chamado call back, então qualquer coisa que eu colocar dentro do tereceiro parametro 
+//so vai executar quando a função enviar e-mail terminar o processo dela 
+// ai como terceiro parametro eu coloquei uma função que avisa que o e-mal foi enviado  
+
+
+console.log('enviando e-mail')
+
+function enviarEmail(corpo,para,callback){
+
+     setTimeout(()=>{
+        console.log(
+            `Para: ${para}
+             --------------------------------
+             ${corpo}
+             --------------------------------------
+             De> Victor Lima
+            `
+        );
+      //executando a função de call back sendo que posso passar parametros tambem
+      //para a função de call back 
+
+      callback("ok",5,"8s");
+
+     },3000)
+}
+
+//função de call back 
+
+enviarEmail('seja bem vindo ','Pedro',(status,amount,time)=>{
+
+    console.log(`
+    Status: ${status}
+    -------------------------------
+    Contatos: ${amount}
+    -------------------------------
+    Tempo de envio ${time}`
+    );
+    console.log('TUDO OK !');
+
+
+})
+
+
