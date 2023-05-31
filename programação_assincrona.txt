@@ -5,4 +5,8 @@ ASSINCRONIA
  problemas, por exemplo no cadastro de um usurio eu tenho que validar as informações antes de salvar na base de dados, se a função salvar 
  for executada antes de validar eu vou ter um problema.
 
+ No caso a a programação assincrona não pode ser usada em todos os casos, por exemplo envio de e-mial pode ser assincrono, gravaça~em base de dados não 
+
+
+
 
