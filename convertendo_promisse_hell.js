@@ -1,11 +1,4 @@
 
-// Essa é um lista de funções que um sistema precisa seguir para enviar o email
-// primeiro ele pega o id do conato, depois ele busca na base de dados qual eo o email do contato 
-//e por fim envia o e-mail
-// no caso nos tems tres promisses 1 dentro da função que busca o id(ele pormete um id ) 
-// e a outra na função que busca o email(ele promete que um email vai ser retornado)
-// e outra pormete que vai receber as informações e enviar uma email
-// mas todas elas são processos assinronos e eu vou ter que ordenar a sequencia de execução de cada uma  
 
 function pegarId(){
     return new Promise((resolve,reject)=>{
@@ -40,9 +33,9 @@ function enviarEmail(corpo,para){
     })
 }
 
-//abaixo eu executo as promisses de forma sincrona 
-//para que eu possa controlar a sequancia de execução e maisl facil aninhar as promisses 
+/*
 
+VERSÃO ANTIGA 
 
 pegarId().then((id) =>{ //pegando o id
 
@@ -58,8 +51,29 @@ pegarId().then((id) =>{ //pegando o id
     })
      
 })
+*/
 
-//Vale ressaltar que embora isso funcione pode não ser ainda uma boa pratica em alguns casos 
+//Apos a conevr~sao o codigor eduz consideravelmente como podemos ver abaixo 
+
+
+async function principal(){
+
+    var userId = await pegarId();
+    
+    var email = await buscarEmailNoBanco(userId);
+
+    await enviarEmail('Olá como vai ?',email).then(()=>{
+        console.log('email enviado');
+    }).catch((err)=>{
+        console.log(err)
+    })
+
+
+}
+
+principal();
+
+
  
 
 
