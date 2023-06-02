@@ -23,7 +23,7 @@ function buscarEmailNoBanco(id){
 function enviarEmail(corpo,para){
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-            var deuErro = false;
+            var deuErro = true;
             if(!deuErro){
                 resolve({time: 6, to:"victor@udemy.com"})
             }else{
@@ -59,14 +59,20 @@ pegarId().then((id) =>{ //pegando o id
 async function principal(){
 
     var userId = await pegarId();
-    
-    var email = await buscarEmailNoBanco(userId);
 
-    await enviarEmail('Olá como vai ?',email).then(()=>{
-        console.log('email enviado');
-    }).catch((err)=>{
-        console.log(err)
-    })
+    var email = await buscarEmailNoBanco(userId);
+    
+    try {
+        
+        await enviarEmail('Olá como vai ?', email);
+        console.log('e-mail enviado')
+
+    } catch (error) {
+
+        console.log(error)
+    }
+
+   
 
 
 }
